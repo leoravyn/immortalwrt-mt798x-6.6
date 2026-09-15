@@ -224,10 +224,6 @@ platform_check_image() {
 	[ "$#" -gt 1 ] && return 1
 
 	case "$board" in
-	ikuai,q3000)
-		nand_do_platform_check "$board" "$1"
-		return $?
-		;;
 	bananapi,bpi-r3|\
 	bananapi,bpi-r3-mini|\
 	bananapi,bpi-r4|\
