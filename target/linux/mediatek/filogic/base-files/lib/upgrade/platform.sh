@@ -77,6 +77,7 @@ platform_do_upgrade() {
     xiaomi,mi-router-wr30u-ubootmod|\
 	h3c,magic-nx30-pro|\
 	jcg,q30-pro|\
+	ikuai,q3000|\
     qihoo,360t7)
 		CI_UBIPART="ubi"
     		CI_KERNPART="kernel"
@@ -223,6 +224,10 @@ platform_check_image() {
 	[ "$#" -gt 1 ] && return 1
 
 	case "$board" in
+	ikuai,q3000)
+		nand_do_platform_check "$board" "$1"
+		return $?
+		;;
 	bananapi,bpi-r3|\
 	bananapi,bpi-r3-mini|\
 	bananapi,bpi-r4|\

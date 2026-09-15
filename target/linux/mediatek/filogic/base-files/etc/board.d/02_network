@@ -54,6 +54,7 @@ mediatek_setup_interfaces()
 	cmcc,a10-ubootmod|\
 	confiabits,mt7981|\
 	cudy,wr3000-v1|\
+	ikuai,q3000|\
 	jcg,q30-pro|\
 	keenetic,kn3811|\
 	netis,nx32u|\
@@ -247,6 +248,10 @@ mediatek_setup_macs()
 		lan_mac=$(mtd_get_mac_ascii factory lanMac)
 		wan_mac=$(macaddr_add "$lan_mac" 1)
 		label_mac=$wan_mac
+		;;
+	ikuai,q3000)
+		wan_mac=$(mtd_get_mac_binary Factory 0x10048)
+		lan_mac=$(macaddr_add "$wan_mac" 1)
 		;;
 	ruijie,ew-6000gx-pro*|\
 	ruijie,rg-x60*)

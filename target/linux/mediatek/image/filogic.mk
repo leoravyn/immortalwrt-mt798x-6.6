@@ -1289,6 +1289,23 @@ define Device/jcg_q30-pro
 endef
 TARGET_DEVICES += jcg_q30-pro
 
+define Device/ikuai_q3000
+  DEVICE_VENDOR := iKuai
+  DEVICE_MODEL := Q3000
+  DEVICE_DTS := mt7981b-ikuai-q3000
+  DEVICE_DTS_DIR := ../dts
+  SUPPORTED_DEVICES := ikuai,q3000
+  UBINIZE_OPTS := -E 5
+  BLOCKSIZE := 128k
+  PAGESIZE := 2048
+  IMAGE_SIZE := 114816k
+  KERNEL_IN_UBI := 1
+  IMAGES += factory.bin
+  IMAGE/factory.bin := append-ubi | check-size $$$$(IMAGE_SIZE)
+  IMAGE/sysupgrade.bin := sysupgrade-tar | append-metadata
+endef
+TARGET_DEVICES += ikuai_q3000
+
 define Device/jdcloud_re-cp-03
   DEVICE_VENDOR := JDCloud
   DEVICE_MODEL := RE-CP-03

@@ -48,6 +48,11 @@ confiabits,mt7981)
 	ucidef_set_led_netdev "lan3" "lan3" "blue:lan-3" "lan3" "link tx rx"
 	ucidef_set_led_netdev "wan" "wan" "blue:wan" "wan" "link tx rx"
 	;;
+ikuai,q3000)
+	ucidef_set_led_default "green" "GREEN" "q3000:green" "1"
+	ucidef_set_led_default "blue" "BLUE" "q3000:blue" "0"
+	ucidef_set_led_default "red" "RED" "q3000:red" "0"
+	;;
 cudy,re3000-v1|\
 wavlink,wl-wn573hx3)
 	ucidef_set_led_netdev "lan" "lan" "green:lan" "eth0" "link tx rx"
